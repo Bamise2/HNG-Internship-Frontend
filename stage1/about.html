@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - HNG Stage 1</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav.main-nav {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav.main-nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        nav.main-nav a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        nav.main-nav a:hover,
+        nav.main-nav a:focus {
+            background: #667eea;
+            color: white;
+            outline: 2px solid #fbd38d;
+            outline-offset: 2px;
+        }
+
+        nav.main-nav a.active {
+            background: #667eea;
+            color: white;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 2rem;
+        }
+
+        .about-container {
+            background: white;
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: #2d3748;
+            font-size: 36px;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        .intro {
+            color: #718096;
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 18px;
+        }
+
+        section {
+            margin-bottom: 2.5rem;
+            padding: 1.5rem;
+            background: #f7fafc;
+            border-radius: 12px;
+            border-left: 4px solid #667eea;
+        }
+
+        section:last-of-type {
+            margin-bottom: 0;
+        }
+
+        h2 {
+            color: #2d3748;
+            font-size: 24px;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        h2::before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: #667eea;
+            border-radius: 50%;
+        }
+
+        p {
+            color: #4a5568;
+            font-size: 16px;
+            margin-bottom: 1rem;
+        }
+
+        p:last-child {
+            margin-bottom: 0;
+        }
+
+        ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        li {
+            color: #4a5568;
+            padding: 0.75rem;
+            margin-bottom: 0.5rem;
+            background: white;
+            border-radius: 8px;
+            border-left: 3px solid #667eea;
+            transition: all 0.2s ease;
+        }
+
+        li:hover {
+            transform: translateX(4px);
+            box-shadow: 0 2px 8px rgba(102, 126, 234, 0.2);
+        }
+
+        .highlight {
+            background: #fef5e7;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 4px solid #f59e0b;
+            margin-top: 1rem;
+        }
+
+        .highlight p {
+            color: #92400e;
+            font-style: italic;
+            font-size: 18px;
+        }
+
+        @media (max-width: 768px) {
+            main {
+                padding: 1rem;
+            }
+
+            .about-container {
+                padding: 1.5rem;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            .intro {
+                font-size: 16px;
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+
+            section {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="about.html" class="active">About Me</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main data-testid="test-about-page">
+        <div class="about-container">
+            <h1>About Me</h1>
+            <p class="intro">My journey through the HNG Internship</p>
+
+            <!-- Bio Section -->
+            <section data-testid="test-about-bio">
+                <h2>Who I Am</h2>
+                <p>
+                    I'm a passionate developer embarking on my journey into backend development through the HNG Internship. 
+                    Coming from a frontend background, I've always been fascinated by how systems work behind the scenes. 
+                    This internship represents a significant step in expanding my technical skillset and becoming a full-stack developer.
+                </p>
+                <p>
+                    My interest in technology stems from a desire to build solutions that make a real difference. 
+                    Whether it's creating intuitive user interfaces or architecting robust backend systems, I'm driven by 
+                    the challenge of turning complex problems into elegant solutions.
+                </p>
+            </section>
+
+            <!-- Goals Section -->
+            <section data-testid="test-about-goals">
+                <h2>My Goals in This Program</h2>
+                <p>I'm approaching this internship with clear objectives that will shape my learning journey:</p>
+                <ul>
+                    <li>Master FastAPI and Python backend development to build scalable REST APIs</li>
+                    <li>Gain hands-on experience with database design, ORMs, and SQL/PostgreSQL</li>
+                    <li>Learn deployment practices and DevOps fundamentals through real-world projects</li>
+                    <li>Understand authentication, authorization, and API security best practices</li>
+                    <li>Develop strong debugging and problem-solving skills in production environments</li>
+                    <li>Build a portfolio of projects that demonstrate practical backend development skills</li>
+                    <li>Connect with fellow developers and learn from the HNG community</li>
+                </ul>
+            </section>
+
+            <!-- Low Confidence Areas -->
+            <section data-testid="test-about-confidence">
+                <h2>Areas Where I'm Building Confidence</h2>
+                <p>Growth comes from acknowledging what we don't yet know. Here are areas I'm actively working to improve:</p>
+                <ul>
+                    <li>Database optimization and query performance tuning</li>
+                    <li>Implementing complex authentication systems (OAuth, JWT best practices)</li>
+                    <li>Microservices architecture and when to use it appropriately</li>
+                    <li>Writing comprehensive unit and integration tests</li>
+                    <li>Cloud infrastructure management and DevOps workflows</li>
+                    <li>Handling race conditions and concurrent operations in distributed systems</li>
+                    <li>API versioning strategies for production applications</li>
+                </ul>
+                <p>
+                    I view these challenges not as obstacles but as opportunities for growth. Each project in this 
+                    internship is a chance to strengthen these areas through practice and learning.
+                </p>
+            </section>
+
+            <!-- Future Note -->
+            <section data-testid="test-about-future-note">
+                <h2>Note to My Future Self</h2>
+                <div class="highlight">
+                    <p>
+                        Remember this moment. Right now, you're at the beginning of something transformative. 
+                        The confusion you feel when debugging that environment variable issue? The frustration of seeing 
+                        default values in production? These struggles are shaping you into a better developer.
+                    </p>
+                    <p>
+                        When you look back at this code in six months or a year, you'll smile at how far you've come. 
+                        But never forget the persistence it took to get there. Every error message taught you something. 
+                        Every deployment failure made you more resilient. Every concept that seemed impossible eventually 
+                        became second nature.
+                    </p>
+                    <p>
+                        Keep that curiosity alive. Keep asking "why" instead of just accepting "how." The developers 
+                        you admire today were once exactly where you are now. The difference? They didn't give up.
+                    </p>
+                    <p>
+                        You've got this. Keep building, keep learning, and most importantly—keep believing in yourself.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Extra Thoughts -->
+            <section data-testid="test-about-extra">
+                <h2>Additional Reflections</h2>
+                <p>
+                    <strong>On Learning:</strong> I've discovered that the best way to learn backend development is by 
+                    building real projects. Reading documentation is essential, but nothing compares to the lessons learned 
+                    from deploying an actual API and watching it handle real requests.
+                </p>
+                <p>
+                    <strong>On Community:</strong> The HNG Internship has shown me the value of learning alongside others. 
+                    When I'm stuck, I know there are peers facing similar challenges. This shared experience makes the 
+                    journey less isolating and more collaborative.
+                </p>
+                <p>
+                    <strong>On the Future:</strong> I'm excited about where this internship will take me. Whether it's 
+                    landing my first backend role, contributing to open-source projects, or building my own products, 
+                    I know the skills I'm developing here will be foundational to whatever comes next.
+                </p>
+                <p>
+                    <strong>On Gratitude:</strong> Thank you to the HNG team for creating this opportunity, and to everyone 
+                    who has supported my journey so far. Here's to the growth that lies ahead!
+                </p>
+            </section>
+        </div>
+    </main>
+</body>
+</html>

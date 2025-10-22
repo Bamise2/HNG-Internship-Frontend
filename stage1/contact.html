@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - HNG Stage 1</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav.main-nav {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav.main-nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        nav.main-nav a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        nav.main-nav a:hover,
+        nav.main-nav a:focus {
+            background: #667eea;
+            color: white;
+            outline: 2px solid #fbd38d;
+            outline-offset: 2px;
+        }
+
+        nav.main-nav a.active {
+            background: #667eea;
+            color: white;
+        }
+
+        /* Main Container */
+        main {
+            max-width: 600px;
+            margin: 2rem auto;
+            padding: 2rem;
+        }
+
+        .contact-container {
+            background: white;
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: #2d3748;
+            font-size: 32px;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        .subtitle {
+            color: #718096;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        /* Form Styles */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            color: #2d3748;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        label .required {
+            color: #e53e3e;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 16px;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+
+        input:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Error Styles */
+        .error-message {
+            color: #e53e3e;
+            font-size: 14px;
+            margin-top: 0.5rem;
+            display: none;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        input.error,
+        textarea.error {
+            border-color: #e53e3e;
+        }
+
+        /* Success Message */
+        .success-message {
+            background: #48bb78;
+            color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            display: none;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        /* Submit Button */
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+
+        .submit-btn:focus {
+            outline: 3px solid #fbd38d;
+            outline-offset: 2px;
+        }
+
+        .submit-btn:disabled {
+            background: #cbd5e0;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        @media (max-width: 768px) {
+            main {
+                padding: 1rem;
+            }
+
+            .contact-container {
+                padding: 1.5rem;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="contact.html" class="active">Contact Us</a></li>
+            <li><a href="about.html">About Me</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <div class="contact-container">
+            <h1>Contact Us</h1>
+            <p class="subtitle">We'd love to hear from you!</p>
+
+            <!-- Success Message -->
+            <div class="success-message" data-testid="test-contact-success">
+                ✓ Thank you! Your message has been sent successfully.
+            </div>
+
+            <!-- Contact Form -->
+            <form id="contactForm" novalidate>
+                <!-- Full Name -->
+                <div class="form-group">
+                    <label for="name">
+                        Full Name <span class="required">*</span>
+                    </label>
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        data-testid="test-contact-name"
+                        aria-describedby="name-error"
+                        required
+                    >
+                    <div class="error-message" id="name-error" data-testid="test-contact-error-name" role="alert">
+                        Please enter your full name
+                    </div>
+                </div>
+
+                <!-- Email -->
+                <div class="form-group">
+                    <label for="email">
+                        Email <span class="required">*</span>
+                    </label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        data-testid="test-contact-email"
+                        aria-describedby="email-error"
+                        required
+                    >
+                    <div class="error-message" id="email-error" data-testid="test-contact-error-email" role="alert">
+                        Please enter a valid email address
+                    </div>
+                </div>
+
+                <!-- Subject -->
+                <div class="form-group">
+                    <label for="subject">
+                        Subject <span class="required">*</span>
+                    </label>
+                    <input
+                        type="text"
+                        id="subject"
+                        name="subject"
+                        data-testid="test-contact-subject"
+                        aria-describedby="subject-error"
+                        required
+                    >
+                    <div class="error-message" id="subject-error" data-testid="test-contact-error-subject" role="alert">
+                        Please enter a subject
+                    </div>
+                </div>
+
+                <!-- Message -->
+                <div class="form-group">
+                    <label for="message">
+                        Message <span class="required">*</span>
+                    </label>
+                    <textarea
+                        id="message"
+                        name="message"
+                        data-testid="test-contact-message"
+                        aria-describedby="message-error"
+                        required
+                        minlength="10"
+                    ></textarea>
+                    <div class="error-message" id="message-error" data-testid="test-contact-error-message" role="alert">
+                        Message must be at least 10 characters
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <button
+                    type="submit"
+                    class="submit-btn"
+                    data-testid="test-contact-submit"
+                >
+                    Send Message
+                </button>
+            </form>
+        </div>
+    </main>
+
+    <script>
+        const form = document.getElementById('contactForm');
+        const successMessage = document.querySelector('[data-testid="test-contact-success"]');
+
+        // Validation functions
+        function validateName(name) {
+            return name.trim().length > 0;
+        }
+
+        function validateEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        function validateSubject(subject) {
+            return subject.trim().length > 0;
+        }
+
+        function validateMessage(message) {
+            return message.trim().length >= 10;
+        }
+
+        // Show error
+        function showError(input, errorElement) {
+            input.classList.add('error');
+            errorElement.classList.add('show');
+        }
+
+        // Hide error
+        function hideError(input, errorElement) {
+            input.classList.remove('error');
+            errorElement.classList.remove('show');
+        }
+
+        // Validate field
+        function validateField(input, validator) {
+            const errorElement = document.getElementById(`${input.id}-error`);
+            const isValid = validator(input.value);
+
+            if (isValid) {
+                hideError(input, errorElement);
+            } else {
+                showError(input, errorElement);
+            }
+
+            return isValid;
+        }
+
+        // Real-time validation
+        const nameInput = document.getElementById('name');
+        const emailInput = document.getElementById('email');
+        const subjectInput = document.getElementById('subject');
+        const messageInput = document.getElementById('message');
+
+        nameInput.addEventListener('blur', () => validateField(nameInput, validateName));
+        emailInput.addEventListener('blur', () => validateField(emailInput, validateEmail));
+        subjectInput.addEventListener('blur', () => validateField(subjectInput, validateSubject));
+        messageInput.addEventListener('blur', () => validateField(messageInput, validateMessage));
+
+        // Form submission
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            // Validate all fields
+            const isNameValid = validateField(nameInput, validateName);
+            const isEmailValid = validateField(emailInput, validateEmail);
+            const isSubjectValid = validateField(subjectInput, validateSubject);
+            const isMessageValid = validateField(messageInput, validateMessage);
+
+            // If all valid, show success
+            if (isNameValid && isEmailValid && isSubjectValid && isMessageValid) {
+                successMessage.classList.add('show');
+                form.reset();
+
+                // Remove all error states
+                document.querySelectorAll('.error').forEach(el => el.classList.remove('error'));
+                document.querySelectorAll('.error-message.show').forEach(el => el.classList.remove('show'));
+
+                // Hide success message after 5 seconds
+                setTimeout(() => {
+                    successMessage.classList.remove('show');
+                }, 5000);
+
+                // Scroll to success message
+                successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        });
+    </script>
+</body>
+</html>
