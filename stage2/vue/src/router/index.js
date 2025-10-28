@@ -25,7 +25,7 @@ const router = createRouter({
     {
       path: '/auth/signup',
       name: 'signup',
-      component: () => import('../views/Signup.vue'),
+      component: () => import('../views/SignUp.vue'),
       beforeEnter: (to, from, next) => {
         if (isAuthenticated()) {
           next('/dashboard')
