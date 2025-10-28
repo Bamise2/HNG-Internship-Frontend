@@ -1,0 +1,107 @@
+<template>
+  <div class="dashboard-page">
+    <div class="container">
+      <div class="dashboard-header">
+        <div>
+          <h1>Welcome back, {{ user?.name }}! 👋</h1>
+          <p>Here's an overview of your ticket management</p>
+        </div>
+        <router-link to="/tickets" class="btn btn-primary">
+          Manage Tickets
+        </router-link>
+      </div>
+
+      <!-- Stats Grid -->
+      <div class="stats-grid">
+        <div class="stat-card stat-total">
+          <div class="stat-icon">📊</div>
+          <div class="stat-content">
+            <h3 class="stat-value">{{ stats.total }}</h3>
+            <p class="stat-label">Total Tickets</p>
+          </div>
+        </div>
+
+        <div class="stat-card stat-open">
+          <div class="stat-icon">🟢</div>
+          <div class="stat-content">
+            <h3 class="stat-value">{{ stats.open }}</h3>
+            <p class="stat-label">Open Tickets</p>
+          </div>
+        </div>
+
+        <div class="stat-card stat-progress">
+          <div class="stat-icon">🟡</div>
+          <div class="stat-content">
+            <h3 class="stat-value">{{ stats.in_progress }}</h3>
+            <p class="stat-label">In Progress</p>
+          </div>
+        </div>
+
+        <div class="stat-card stat-closed">
+          <div class="stat-icon">⚪</div>
+          <div class="stat-content">
+            <h3 class="stat-value">{{ stats.closed }}</h3>
+            <p class="stat-label">Resolved Tickets</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Actions -->
+      <div class="quick-actions">
+        <h2>Quick Actions</h2>
+        <div class="actions-grid">
+          <router-link to="/tickets" class="action-box">
+            <div class="action-icon">➕</div>
+            <h3>Create Ticket</h3>
+            <p>Report a new issue or request</p>
+          </router-link>
+
+          <router-link to="/tickets" class="action-box">
+            <div class="action-icon">📋</div>
+            <h3>View All Tickets</h3>
+            <p>See all your tickets in one place</p>
+          </router-link>
+
+          <router-link to="/tickets" class="action-box">
+            <div class="action-icon">🔍</div>
+            <h3>Filter Tickets</h3>
+            <p>Search and filter by status</p>
+          </router-link>
+        </div>
+      </div>
+
+      <!-- Info Box -->
+      <div class="info-box">
+        <h3>💡 Tip of the Day</h3>
+        <p>
+          Keep your tickets organized by using descriptive titles and clear descriptions. 
+          This helps your team understand and resolve issues faster!
+        </p>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script setup>
+import { ref, onMounted, computed } from 'vue'
+import { getTicketStats } from '../utils/storage'
+import { getCurrentUser } from '../utils/auth'
+
+const stats = ref({
+  total: 0,
+  open: 0,
+  in_progress: 0,
+  closed: 0
+})
+
+const user = computed(() => getCurrentUser())
+
+const loadStats = () => {
+  const ticketStats = getTicketStats()
+  stats.value = ticketStats
+}
+
+onMounted(() => {
+  loadStats()
+})
+</script>
