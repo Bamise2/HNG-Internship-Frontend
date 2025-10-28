@@ -1,6 +1,6 @@
 <template>
   <div class="auth-page">
-    <div class="container">
+    <div class="wrapper">
       <div class="auth-container">
         <div class="auth-box">
           <h1 class="auth-title">Welcome Back</h1>

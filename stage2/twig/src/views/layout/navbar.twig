@@ -1,0 +1,27 @@
+<nav class="navbar">
+    <div class="container">
+        <div class="nav-content">
+            <a href="/" class="logo">
+                🎫 TicketApp
+            </a>
+
+            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle menu">
+                ☰
+            </button>
+
+            <div class="nav-links" id="nav-links">
+                {% if isAuthenticated %}
+                    <a href="/dashboard" class="nav-link">Dashboard</a>
+                    <a href="/tickets" class="nav-link">Tickets</a>
+                    <span class="nav-user">👤 {{ user.name }}</span>
+                    <form action="/auth/logout" method="POST" style="display: inline;">
+                        <button type="submit" class="btn btn-secondary">Logout</button>
+                    </form>
+                {% else %}
+                    <a href="/auth/login" class="btn btn-secondary">Login</a>
+                    <a href="/auth/signup" class="btn btn-primary">Get Started</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</nav>
