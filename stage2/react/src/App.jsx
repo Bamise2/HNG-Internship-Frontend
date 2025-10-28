@@ -5,7 +5,7 @@ import Footer from './components/Footer';
 import ProtectedRoute from './components/ProtectedRoute';
 import Landing from './pages/Landing';
 import Login from './pages/Login';
-import Signup from './pages/Signup';
+import Signup from './pages/SignUp';
 import Dashboard from './pages/Dashboard';
 import TicketManagement from './pages/TicketManagement';
 import { isAuthenticated } from './utils/auth';
